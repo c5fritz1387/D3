@@ -81,11 +81,11 @@ var rect = svg.selectAll(".day")
 title = rect.append("title")
     .text(function(d) { return d; });
 
-/*var month = svg.selectAll(".month")
+var month = svg.selectAll(".month")
     .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
   .enter().append("path")
     .attr("class", "month")
-    //.attr("d", monthPath);*/
+    .attr("d", monthPath);
 
 /*svg.selectAll(".month")
     .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
@@ -115,7 +115,7 @@ dataset = rect.filter(function(d) { return d in data; })
 
 });
 
-/*function monthPath(t0) {
+function monthPath(t0) {
   var t1 = new Date(t0.getFullYear(), t0.getMonth() + 2, 0),
       d0 = +day(t0), w0 = +week(t0),
       d1 = +day(t1), w1 = +week(t1);
@@ -124,7 +124,7 @@ dataset = rect.filter(function(d) { return d in data; })
       + "H" + w1 * cellSize + "V" + (d1 + 1) * cellSize
       + "H" + (w1 + 1) * cellSize + "V" + 0
       + "H" + (w0 + 1) * cellSize + "Z";
-}*/
+}
 
 
 
