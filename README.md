@@ -1,1 +1,1 @@
-# D3 calendar testing ground
+# D3 calendar heatmap testing ground. Adopted from mike bostock's example.
