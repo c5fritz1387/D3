@@ -31,6 +31,15 @@ body {
 .RdYlGn .q9-11{fill:rgb(26,152,80)}
 .RdYlGn .q10-11{fill:rgb(0,104,55)}
 
+.RdYlGn{
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+}
+
+
+
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -54,14 +63,14 @@ var color = d3.scale.quantize()
     .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 
 var svg = d3.select("body").selectAll("svg")
-
     .data(d3.range(2014, 2015))
-  .enter().append("svg")
+    .enter().append("svg")
+    .attr("style", "outline: thin solid black;")  
     .attr("width", width)
     .attr("height", height)
     .attr("class", "RdYlGn")
-  .append("g")
-    .attr("transform", "translate(" + (width - cellSize * 7 - 1) + "," + (height - cellSize * 53) + ")");
+    .append("g")
+    .attr("transform", "translate(" + (width - cellSize * 7 - 1) + "," + (height - cellSize * 53) + ")")
 
 svg.append("text")
     .attr("transform", "translate(-10," + cellSize * 10.5 + ")rotate(-90)")//
@@ -81,11 +90,6 @@ var rect = svg.selectAll(".day")
 title = rect.append("title")
     .text(function(d) { return d; });
 
-var month = svg.selectAll(".month")
-    .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
-  .enter().append("path")
-    .attr("class", "month")
-    .attr("d", monthPath);
 
 /*svg.selectAll(".month")
     .data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
